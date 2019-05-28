@@ -11,15 +11,18 @@ int main()
  	
 	LoadLibrary(_T("C:\\Users\\iiqone\\Desktop\\123.dll"));
 
-	XHideDll::PrintModuleList();
-
-	XHideDll::HideInLoadOrderLinks(GetModuleHandle(_T("123.dll")));
-
-	XHideDll::HideInMemoryOrderLinks(GetModuleHandle(_T("123.dll")));
-
-	XHideDll::HideInInitializationOrderLinks(GetModuleHandle(_T("123.dll")));
+	HMODULE hHideBase = GetModuleHandle(_T("123.dll"));
 
 	XHideDll::PrintModuleList();
+
+	XHideDll::HideInLoadOrderLinks(hHideBase);
+
+	XHideDll::HideInMemoryOrderLinks(hHideBase);
+
+	XHideDll::HideInInitializationOrderLinks(hHideBase);
+
+	XHideDll::PrintModuleList();
+
 
 	return 0;
 }
